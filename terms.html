@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Matchbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #F5F0E8; --surface: #FAF7F2; --text-primary: #2C1810;
+            --text-secondary: #6B5B4D; --text-tertiary: #9B8C7D;
+            --accent: #B8860B; --accent-hover: #D4A538; --divider: #C4A97D;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0F0B08; --surface: #1A1410; --text-primary: #E3DBC9;
+                --text-secondary: #A59780; --text-tertiary: #7A6D5D;
+                --accent: #D4A538; --accent-hover: #E8BF5A; --divider: #60513D;
+            }
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg); color: var(--text-primary);
+            line-height: 1.7; -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.3; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: var(--surface); border-bottom: 1px solid var(--divider);
+            backdrop-filter: blur(12px);
+        }
+        nav .container {
+            max-width: 960px; margin: 0 auto; padding: 0 24px;
+            display: flex; justify-content: space-between; align-items: center; height: 56px;
+        }
+        .nav-brand { font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px; color: var(--text-primary); }
+        .content {
+            max-width: 680px; margin: 0 auto; padding: 120px 24px 80px;
+        }
+        .content h1 { font-size: 36px; margin-bottom: 8px; }
+        .content .updated { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
+        .content h2 { font-size: 22px; margin-top: 40px; margin-bottom: 12px; }
+        .content p { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; }
+        .content ul { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
+        .content li { margin-bottom: 6px; }
+        .content strong { color: var(--text-primary); }
+        footer {
+            padding: 40px 0; border-top: 1px solid var(--divider); text-align: center;
+        }
+        .riot-disclaimer { font-size: 11px; color: var(--text-tertiary); max-width: 600px; margin: 0 auto 12px; line-height: 1.5; }
+        .footer-copy { font-size: 12px; color: var(--text-tertiary); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-brand">Matchbook</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Terms of Service</h1>
+        <p class="updated">Last updated: March 2, 2026</p>
+
+        <h2>1. Agreement to Terms</h2>
+        <p>By downloading, installing, or using Matchbook ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>Matchbook is a companion application for League of Legends that provides structured journaling, game recording, performance tracking, and optional AI-powered analysis to help players improve through deliberate practice. Matchbook is currently available on macOS with plans to expand to additional platforms.</p>
+
+        <h2>3. Not Affiliated with Riot Games</h2>
+        <p>Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends, Riot Games, and all related trademarks, logos, and intellectual property are the property of Riot Games, Inc.</p>
+        <p>Matchbook uses the Riot Games API in accordance with Riot's Developer Policies. Your use of Matchbook does not create any relationship between you and Riot Games beyond what already exists through your Riot Games account.</p>
+
+        <h2>4. Eligibility</h2>
+        <p>You must be at least 13 years old to use Matchbook. By using the App, you represent that you meet this age requirement. If you are under 18, you represent that your parent or legal guardian has reviewed and agreed to these Terms.</p>
+        <p>You must have a valid Riot Games account to use Matchbook's core features. Your Riot Games account is subject to Riot's own Terms of Service.</p>
+
+        <h2>5. Your Account and Data</h2>
+        <p>Matchbook stores all data locally on your device. You are responsible for:</p>
+        <ul>
+            <li>Maintaining the security of your device and your data</li>
+            <li>Backing up any data you wish to preserve</li>
+            <li>Managing your own API keys for Riot Games and any AI providers you configure</li>
+        </ul>
+        <p>Matchbook does not have access to your data once it is stored on your device. If you lose your device or delete your data, we cannot recover it.</p>
+
+        <h2>6. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Use Matchbook to violate Riot Games' Terms of Service or Developer Policies</li>
+            <li>Attempt to reverse engineer, decompile, or extract source code from Matchbook</li>
+            <li>Use Matchbook to gain unfair in-game advantages, automate gameplay, or create cheating tools</li>
+            <li>Redistribute, resell, or sublicense Matchbook or any data obtained through it</li>
+            <li>Use Matchbook to harass, stalk, or collect information about other players without their consent</li>
+            <li>Attempt to access Riot API data beyond what Matchbook requests for its intended features</li>
+        </ul>
+
+        <h2>7. AI Features</h2>
+        <p>Matchbook offers optional AI analysis features powered by third-party AI providers (such as Anthropic and OpenAI). When you use these features:</p>
+        <ul>
+            <li>You are responsible for providing your own API key for the AI provider of your choice</li>
+            <li>Data sent to AI providers is subject to those providers' terms of service and privacy policies</li>
+            <li>AI-generated insights are for informational and educational purposes only — they are not guaranteed to be accurate</li>
+            <li>Matchbook does not control how third-party AI providers process your data once it is sent to their API</li>
+        </ul>
+
+        <h2>8. Screen Recording</h2>
+        <p>Matchbook's recording feature uses your operating system's screen capture capabilities to record your League of Legends gameplay. By using this feature:</p>
+        <ul>
+            <li>You consent to Matchbook capturing video of your game window</li>
+            <li>You are responsible for ensuring you have the right to record content visible on your screen</li>
+            <li>Recordings are stored locally on your device and are not uploaded anywhere unless you choose to share them</li>
+            <li>Recordings may capture in-game chat, other players' usernames, and other visible content</li>
+        </ul>
+
+        <h2>9. Intellectual Property</h2>
+        <p>Matchbook and its original content, features, and functionality are owned by Matchbook and protected by copyright and other intellectual property laws.</p>
+        <p>League of Legends game content, champion names, item names, and other Riot Games intellectual property that appears within Matchbook (fetched via the Riot API or displayed in recordings) remains the property of Riot Games, Inc.</p>
+
+        <h2>10. Disclaimer of Warranties</h2>
+        <p>Matchbook is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+        <p>We do not warrant that:</p>
+        <ul>
+            <li>The App will be uninterrupted, timely, secure, or error-free</li>
+            <li>The results obtained from using the App will be accurate or reliable</li>
+            <li>The Riot Games API will remain available or unchanged</li>
+            <li>AI-generated insights will be accurate, complete, or useful</li>
+        </ul>
+
+        <h2>11. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, Matchbook and its creator shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, use, or profits, arising out of or related to your use of the App.</p>
+
+        <h2>12. Changes to the App and These Terms</h2>
+        <p>We reserve the right to modify, suspend, or discontinue Matchbook at any time without notice. We may also update these Terms from time to time. Changes will be noted by updating the "Last updated" date. Your continued use of the App after changes constitutes acceptance of the new Terms.</p>
+
+        <h2>13. Termination</h2>
+        <p>You may stop using Matchbook at any time by uninstalling the App. We reserve the right to terminate or restrict access to the App if you violate these Terms.</p>
+
+        <h2>14. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
+
+        <h2>15. Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:contact@matchbook.gg">contact@matchbook.gg</a></p>
+    </div>
+
+    <footer>
+        <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+        <p class="footer-copy">&copy; 2026 Matchbook</p>
+    </footer>
+</body>
+</html>

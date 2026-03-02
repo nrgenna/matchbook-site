@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Matchbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #F5F0E8; --surface: #FAF7F2; --text-primary: #2C1810;
+            --text-secondary: #6B5B4D; --text-tertiary: #9B8C7D;
+            --accent: #B8860B; --accent-hover: #D4A538; --divider: #C4A97D;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0F0B08; --surface: #1A1410; --text-primary: #E3DBC9;
+                --text-secondary: #A59780; --text-tertiary: #7A6D5D;
+                --accent: #D4A538; --accent-hover: #E8BF5A; --divider: #60513D;
+            }
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg); color: var(--text-primary);
+            line-height: 1.7; -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.3; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: var(--surface); border-bottom: 1px solid var(--divider);
+            backdrop-filter: blur(12px);
+        }
+        nav .container {
+            max-width: 960px; margin: 0 auto; padding: 0 24px;
+            display: flex; justify-content: space-between; align-items: center; height: 56px;
+        }
+        .nav-brand { font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px; color: var(--text-primary); }
+        .content {
+            max-width: 680px; margin: 0 auto; padding: 120px 24px 80px;
+        }
+        .content h1 { font-size: 36px; margin-bottom: 8px; }
+        .content .updated { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
+        .content h2 { font-size: 22px; margin-top: 40px; margin-bottom: 12px; }
+        .content h3 { font-size: 17px; margin-top: 28px; margin-bottom: 8px; }
+        .content p { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; }
+        .content ul { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
+        .content li { margin-bottom: 6px; }
+        .content strong { color: var(--text-primary); }
+        footer {
+            padding: 40px 0; border-top: 1px solid var(--divider); text-align: center;
+        }
+        .riot-disclaimer { font-size: 11px; color: var(--text-tertiary); max-width: 600px; margin: 0 auto 12px; line-height: 1.5; }
+        .footer-copy { font-size: 12px; color: var(--text-tertiary); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-brand">Matchbook</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: March 2, 2026</p>
+
+        <h2>What Matchbook Is</h2>
+        <p>Matchbook is a companion application for League of Legends that helps players improve through structured journaling, game recording, and performance analysis. Matchbook is currently available on macOS with plans to expand to additional platforms.</p>
+        <p>Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+
+        <h2>What Data We Collect</h2>
+
+        <h3>Data You Provide Directly</h3>
+        <ul>
+            <li>Display name and Riot Games account information (game name, tagline, region)</li>
+            <li>Journal entries (session goals, reflections, mood, energy level, per-game notes)</li>
+            <li>Champion notes and matchup guides</li>
+            <li>Learning objectives</li>
+            <li>Gameplay flag annotations and recording notes</li>
+            <li>AI provider configuration (provider choice, model selection)</li>
+        </ul>
+
+        <h3>Data Fetched from the Riot Games API on Your Behalf</h3>
+        <p>When you link your Riot Games account, Matchbook requests the following data from the Riot Games API:</p>
+        <ul>
+            <li>Riot account identifier (PUUID)</li>
+            <li>Match history and match details (champions played, game statistics, outcomes, items, runes)</li>
+            <li>Match timeline events (kills, deaths, objectives, timestamps)</li>
+            <li>Ranked tier, division, and LP</li>
+        </ul>
+        <p>This data is fetched solely to provide Matchbook's journaling and analysis features. Matchbook only reads data from the Riot API — it never modifies your Riot account or game data.</p>
+
+        <h3>Data Generated on Your Device</h3>
+        <ul>
+            <li>Screen recordings of your League of Legends gameplay</li>
+            <li>Video clips extracted from recordings</li>
+            <li>AI-generated insights and analysis (when AI features are configured by you)</li>
+            <li>Statistical snapshots and trends calculated from your match history</li>
+        </ul>
+
+        <h2>Where Your Data Is Stored</h2>
+        <p><strong>All data is stored locally on your device.</strong> Matchbook does not operate cloud servers or sync your data to remote storage.</p>
+        <ul>
+            <li>Structured data (profiles, matches, journals, settings) is stored in a local database on your device.</li>
+            <li>Video recordings and clips are stored as files in your local application data directory.</li>
+            <li>API keys for Riot Games and AI providers are stored in your operating system's secure credential storage (macOS Keychain or platform equivalent), encrypted by the operating system.</li>
+        </ul>
+        <p>If Matchbook introduces optional cloud sync or cross-device features in the future, this will be clearly communicated and require your explicit opt-in consent.</p>
+
+        <h2>Third-Party Services</h2>
+
+        <h3>Riot Games API</h3>
+        <p>Matchbook connects to the Riot Games API to fetch your match history and game statistics. This connection uses your Riot account information and is subject to <a href="https://www.riotgames.com/en/privacy-notice">Riot Games' Privacy Notice</a> and <a href="https://developer.riotgames.com/policies/general">Developer Policies</a>.</p>
+        <ul>
+            <li>Match data is used solely to provide Matchbook's features to you</li>
+            <li>Matchbook does not redistribute, resell, or publicly expose Riot API data</li>
+            <li>Matchbook does not store data beyond what is necessary for the app's functionality</li>
+            <li>All Riot Games trademarks and game data are the property of Riot Games, Inc.</li>
+        </ul>
+
+        <h3>AI Providers (Optional)</h3>
+        <p>If you configure AI analysis features, Matchbook sends match data, journal entries, and game statistics to the AI provider you select (such as Anthropic's Claude API or OpenAI's GPT API). This data is sent directly from your device to the provider's API. Each provider has its own privacy policy:</p>
+        <ul>
+            <li><a href="https://www.anthropic.com/privacy">Anthropic Privacy Policy</a></li>
+            <li><a href="https://openai.com/privacy">OpenAI Privacy Policy</a></li>
+        </ul>
+        <p>If you do not configure an AI provider, no data is sent to any AI service.</p>
+
+        <h3>No Other Third-Party Services</h3>
+        <p>Matchbook does not use analytics services, crash reporting tools, advertising networks, tracking pixels, or any other third-party data collection.</p>
+
+        <h2>Data Retention and Deletion</h2>
+        <p>Since all data is stored locally on your device, you have full control:</p>
+        <ul>
+            <li>Delete individual matches, sessions, recordings, journal entries, champion notes, or any other data at any time within the app.</li>
+            <li>Matchbook's auto-cleanup feature can automatically remove old recordings after a configurable number of days.</li>
+            <li>Uninstalling Matchbook removes the application. Your data files can be removed by deleting the Matchbook folder in your application data directory.</li>
+        </ul>
+
+        <h2>Data Sharing</h2>
+        <p>Matchbook does not sell, rent, or share your personal data with anyone. The only outbound data transfers are:</p>
+        <ul>
+            <li><strong>Riot Games API</strong> — Requests to fetch your match data (using your account information).</li>
+            <li><strong>AI provider APIs</strong> — Only if you have configured and actively use AI analysis features.</li>
+        </ul>
+        <p>Both transfers are initiated by you and occur directly from your device.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>Matchbook is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided personal information through Matchbook, please contact us.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time. Changes will be noted by updating the "Last updated" date. Significant changes will be communicated through the app or our website.</p>
+
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:contact@matchbook.gg">contact@matchbook.gg</a></p>
+    </div>
+
+    <footer>
+        <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+        <p class="footer-copy">&copy; 2026 Matchbook</p>
+    </footer>
+</body>
+</html>
