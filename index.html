@@ -4,42 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matchbook — Your League of Legends Training Journal</title>
-    <meta name="description" content="The first native macOS companion app for League of Legends. Record games, journal your sessions, and improve through deliberate practice.">
+    <meta name="description" content="The first native macOS companion app for League of Legends. Record games, journal your sessions, and improve through deliberate practice. Coming soon.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ── Reset ── */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* ── Design Tokens (Founders Edition palette) ── */
+        /* ── Design Tokens (Standard Theme — dark-first) ── */
         :root {
-            --bg: #F5F0E8;
-            --surface: #FAF7F2;
-            --card: #F2EDE3;
-            --text-primary: #2C1810;
-            --text-secondary: #6B5B4D;
-            --text-tertiary: #9B8C7D;
-            --accent: #B8860B;
-            --accent-hover: #D4A538;
-            --accent-subtle: #D4C5A0;
-            --divider: #C4A97D;
-            --card-border: #C4A97D;
+            --bg: #111114;
+            --bg-subtle: #16161A;
+            --surface: #1E1E24;
+            --surface-elevated: #25252D;
+            --text-primary: #E8E8ED;
+            --text-secondary: #9494A1;
+            --text-tertiary: #5C5C6B;
+            --accent: #818CF2;
+            --accent-hover: #9BA3F7;
+            --accent-subtle: rgba(129, 140, 242, 0.10);
+            --accent-border: rgba(129, 140, 242, 0.20);
+            --divider: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --glow: rgba(129, 140, 242, 0.06);
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: light) {
             :root {
-                --bg: #0F0B08;
-                --surface: #1A1410;
-                --card: #221B14;
-                --text-primary: #E3DBC9;
-                --text-secondary: #A59780;
-                --text-tertiary: #7A6D5D;
-                --accent: #D4A538;
-                --accent-hover: #E8BF5A;
-                --accent-subtle: rgba(212, 165, 56, 0.15);
-                --divider: #60513D;
-                --card-border: #60513D;
+                --bg: #F8F8FA;
+                --bg-subtle: #F0F0F4;
+                --surface: #FFFFFF;
+                --surface-elevated: #FFFFFF;
+                --text-primary: #1A1A1D;
+                --text-secondary: #6B6B76;
+                --text-tertiary: #9B9BA8;
+                --accent: #6366F1;
+                --accent-hover: #818CF2;
+                --accent-subtle: rgba(99, 102, 241, 0.08);
+                --accent-border: rgba(99, 102, 241, 0.18);
+                --divider: rgba(0, 0, 0, 0.06);
+                --card-border: rgba(0, 0, 0, 0.08);
+                --glow: rgba(99, 102, 241, 0.04);
             }
         }
 
@@ -47,22 +53,53 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.3; }
 
-        a { color: var(--accent); text-decoration: none; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
         a:hover { color: var(--accent-hover); }
 
         .container {
             max-width: 960px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* ── Ambient glow ── */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .glow-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: rgba(129, 140, 242, 0.08);
+            top: -200px;
+            right: -100px;
+        }
+
+        .glow-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(99, 102, 241, 0.05);
+            bottom: 20%;
+            left: -150px;
+        }
+
+        @media (prefers-color-scheme: light) {
+            .glow-orb { opacity: 0.3; }
         }
 
         /* ── Nav ── */
@@ -72,10 +109,14 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: var(--surface);
+            background: rgba(17, 17, 20, 0.8);
             border-bottom: 1px solid var(--divider);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+
+        @media (prefers-color-scheme: light) {
+            nav { background: rgba(248, 248, 250, 0.8); }
         }
 
         nav .container {
@@ -105,22 +146,50 @@
 
         /* ── Hero ── */
         .hero {
-            padding: 140px 0 80px;
+            position: relative;
+            padding: 160px 0 80px;
             text-align: center;
+            z-index: 1;
         }
 
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--accent);
             background: var(--accent-subtle);
-            border: 1px solid var(--divider);
+            border: 1px solid var(--accent-border);
             border-radius: 20px;
-            padding: 6px 16px;
-            margin-bottom: 24px;
+            padding: 6px 18px;
+            margin-bottom: 28px;
+            animation: fadeInDown 0.6s ease-out both;
+        }
+
+        .hero-badge .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
@@ -130,13 +199,25 @@
             max-width: 720px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 0.7s ease-out 0.1s both;
         }
+
+        .hero h1 .accent { color: var(--accent); }
 
         .hero p {
             font-size: 18px;
             color: var(--text-secondary);
-            max-width: 560px;
-            margin: 0 auto 40px;
+            max-width: 540px;
+            margin: 0 auto 44px;
+            animation: fadeInUp 0.7s ease-out 0.2s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            animation: fadeInUp 0.7s ease-out 0.3s both;
         }
 
         .hero-cta {
@@ -145,82 +226,187 @@
             gap: 8px;
             background: var(--accent);
             color: #fff;
+            font-family: 'DM Sans', sans-serif;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             padding: 14px 32px;
-            border-radius: 8px;
+            border-radius: 10px;
             border: none;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            cursor: default;
+            transition: transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 0 30px rgba(129, 140, 242, 0.15);
         }
 
-        .hero-cta:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
-
-        .hero-cta svg { width: 18px; height: 18px; }
+        .hero-cta:hover {
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 0 40px rgba(129, 140, 242, 0.25);
+        }
 
         .hero-sub {
-            margin-top: 12px;
             font-size: 13px;
             color: var(--text-tertiary);
         }
 
-        /* ── Screenshot ── */
-        .screenshot-section {
-            padding: 0 0 80px;
-            text-align: center;
+        .hero-sub .platform-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        .screenshot-placeholder {
+        /* ── Preview placeholder ── */
+        .preview-section {
+            position: relative;
+            padding: 0 0 100px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .preview-window {
             max-width: 800px;
             margin: 0 auto;
             aspect-ratio: 16 / 10;
-            background: var(--card);
+            background: var(--surface);
             border: 1px solid var(--card-border);
             border-radius: 12px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 12px;
             color: var(--text-tertiary);
             font-size: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--card-border);
         }
 
-        /* ── Features ── */
-        .features { padding: 80px 0; }
+        .preview-window::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--glow) 0%, transparent 60%);
+        }
 
-        .features h2 {
-            font-size: 32px;
+        .preview-icon {
+            font-size: 40px;
+            opacity: 0.4;
+        }
+
+        .preview-text {
+            position: relative;
+            font-weight: 500;
+            color: var(--text-tertiary);
+        }
+
+        /* ── Status Banner ── */
+        .status-section {
+            position: relative;
+            z-index: 1;
+            padding: 0 0 80px;
+        }
+
+        .status-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--accent-border);
+            border-radius: 12px;
+            padding: 28px 32px;
             text-align: center;
+        }
+
+        .status-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .status-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .status-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent);
             margin-bottom: 12px;
         }
 
-        .features .subtitle {
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* ── Features ── */
+        .features {
+            position: relative;
+            z-index: 1;
+            padding: 80px 0;
+        }
+
+        .section-header {
             text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
             color: var(--text-secondary);
             font-size: 16px;
-            margin-bottom: 56px;
+            max-width: 520px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 16px;
         }
 
         .feature-card {
-            background: var(--card);
+            background: var(--surface);
             border: 1px solid var(--card-border);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 28px;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-border);
+            box-shadow: 0 4px 24px var(--glow);
         }
 
         .feature-icon {
-            font-size: 28px;
+            font-size: 24px;
             margin-bottom: 16px;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--accent-subtle);
+            border: 1px solid var(--accent-border);
+            border-radius: 10px;
         }
 
         .feature-card h3 {
-            font-size: 18px;
+            font-size: 17px;
             margin-bottom: 8px;
         }
 
@@ -232,24 +418,10 @@
 
         /* ── Why Section ── */
         .why-section {
+            position: relative;
+            z-index: 1;
             padding: 80px 0;
             border-top: 1px solid var(--divider);
-        }
-
-        .why-section h2 {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .why-section .subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 16px;
-            margin-bottom: 48px;
-            max-width: 560px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .why-grid {
@@ -258,6 +430,23 @@
             gap: 32px;
             max-width: 720px;
             margin: 0 auto;
+        }
+
+        .why-item {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .why-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 3px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+            opacity: 0.6;
         }
 
         .why-item h3 {
@@ -272,6 +461,8 @@
 
         /* ── CTA Section ── */
         .cta-section {
+            position: relative;
+            z-index: 1;
             padding: 80px 0;
             text-align: center;
             border-top: 1px solid var(--divider);
@@ -286,10 +477,19 @@
             color: var(--text-secondary);
             font-size: 16px;
             margin-bottom: 32px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .hero-sub {
+            margin-top: 16px;
         }
 
         /* ── Footer ── */
         footer {
+            position: relative;
+            z-index: 1;
             padding: 40px 0;
             border-top: 1px solid var(--divider);
         }
@@ -327,12 +527,18 @@
         @media (max-width: 640px) {
             .nav-links { gap: 16px; }
             .nav-links a { font-size: 13px; }
-            .hero { padding: 120px 0 60px; }
+            .hero { padding: 130px 0 60px; }
             .features, .why-section, .cta-section { padding: 60px 0; }
+            .status-card { margin-left: 24px; margin-right: 24px; }
+            .glow-orb { display: none; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Ambient glow -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
 
     <!-- Nav -->
     <nav>
@@ -349,29 +555,52 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">Native macOS App</span>
-            <h1>Your League of Legends Training Journal</h1>
+            <span class="hero-badge"><span class="pulse-dot"></span> In Development</span>
+            <h1>Your League of Legends <span class="accent">Training Journal</span></h1>
             <p>Record your games, journal every session, and track your improvement over time. Built for Mac players who want to get better, not just grind.</p>
-            <a href="#" class="hero-cta">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-                Download for macOS
-            </a>
-            <p class="hero-sub">macOS 14 (Sonoma) or later &middot; Apple Silicon &middot; Free to try</p>
+            <div class="hero-cta-group">
+                <span class="hero-cta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    Coming Soon
+                </span>
+                <p class="hero-sub">
+                    <span class="platform-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/><path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+                        macOS 14+ &middot; Apple Silicon
+                    </span>
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Screenshot -->
-    <section class="screenshot-section">
+    <!-- Preview -->
+    <section class="preview-section">
         <div class="container">
-            <div class="screenshot-placeholder">App screenshot will go here (NRG-252)</div>
+            <div class="preview-window">
+                <span class="preview-icon">&#x1F3AE;</span>
+                <span class="preview-text">App preview coming soon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status -->
+    <section class="status-section">
+        <div class="container">
+            <div class="status-card">
+                <span class="status-label"><span class="status-dot"></span> Development Status</span>
+                <h3>Actively Building</h3>
+                <p>Matchbook is currently in active development. We're building the first native macOS training journal for League of Legends players. Follow along or reach out at <a href="mailto:contact@matchbook.gg">contact@matchbook.gg</a>.</p>
+            </div>
         </div>
     </section>
 
     <!-- Features -->
     <section class="features" id="features">
         <div class="container">
-            <h2>Everything You Need to Improve</h2>
-            <p class="subtitle">Not another stats dashboard. A deliberate practice tool built from the ground up.</p>
+            <div class="section-header">
+                <h2>Everything You Need to Improve</h2>
+                <p>Not another stats dashboard. A deliberate practice tool built from the ground up.</p>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">&#x1F4D6;</span>
@@ -381,7 +610,7 @@
                 <div class="feature-card">
                     <span class="feature-icon">&#x1F3AC;</span>
                     <h3>Game Recording</h3>
-                    <p>Native screen recording with one-click start. Flag moments of confusion or frustration with a hotkey during live play for later review.</p>
+                    <p>Native screen recording with one-click start. Flag moments during live play with a hotkey for later review.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">&#x1F4CA;</span>
@@ -401,7 +630,7 @@
                 <div class="feature-card">
                     <span class="feature-icon">&#x1F6E1;&#xFE0F;</span>
                     <h3>In-Game Overlay</h3>
-                    <p>A transparent, always-on-top window showing your session goals and matchup reminders while you play. Toggle it with a hotkey.</p>
+                    <p>A transparent, always-on-top window showing your session goals and matchup reminders while you play.</p>
                 </div>
             </div>
         </div>
@@ -410,24 +639,26 @@
     <!-- Why Matchbook -->
     <section class="why-section" id="why">
         <div class="container">
-            <h2>Why Matchbook?</h2>
-            <p class="subtitle">Every LoL companion tool is a stats dashboard. Matchbook is the first tool built around how players actually improve.</p>
+            <div class="section-header">
+                <h2>Why Matchbook?</h2>
+                <p>Every LoL companion tool is a stats dashboard. Matchbook is the first tool built around how players actually improve.</p>
+            </div>
             <div class="why-grid">
                 <div class="why-item">
                     <h3>Built for Mac</h3>
-                    <p>Native macOS app using Swift, SwiftUI, and ScreenCaptureKit. No Electron wrappers, no web views, no Windows ports. Made for your Mac.</p>
+                    <p>Native macOS app using Swift, SwiftUI, and ScreenCaptureKit. No Electron, no web views. Made for your Mac.</p>
                 </div>
                 <div class="why-item">
                     <h3>Reflection Over Stats</h3>
-                    <p>Stats tell you what happened. Journaling helps you understand why. Matchbook is designed around deliberate practice, not dashboard overload.</p>
+                    <p>Stats tell you what happened. Journaling helps you understand why. Designed around deliberate practice, not dashboard overload.</p>
                 </div>
                 <div class="why-item">
                     <h3>Privacy First</h3>
-                    <p>All your data stays on your device. No cloud accounts, no telemetry, no ads. Your journal, your recordings, your improvement — all local.</p>
+                    <p>All your data stays on your device. No cloud accounts, no telemetry, no ads. Your journal, your recordings — all local.</p>
                 </div>
                 <div class="why-item">
                     <h3>No In-Game Advantage</h3>
-                    <p>Matchbook doesn't tell you what to build or who to ban. It helps you learn from your own games through reflection and review — the way real improvement works.</p>
+                    <p>Matchbook doesn't tell you what to build or who to ban. It helps you learn from your own games through reflection and review.</p>
                 </div>
             </div>
         </div>
@@ -436,11 +667,11 @@
     <!-- CTA -->
     <section class="cta-section">
         <div class="container">
-            <h2>Start Improving Today</h2>
-            <p>Download Matchbook and turn your ranked sessions into learning sessions.</p>
-            <a href="#" class="hero-cta">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                Download for macOS
+            <h2>Be First to Know</h2>
+            <p>Matchbook is in active development. Drop us a line to get notified when it's ready.</p>
+            <a href="mailto:contact@matchbook.gg" class="hero-cta" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Get in Touch
             </a>
             <p class="hero-sub">macOS 14 (Sonoma) or later &middot; Apple Silicon</p>
         </div>
