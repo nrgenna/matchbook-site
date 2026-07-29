@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Matchbook</title>
+    <meta name="description" content="Matchbook's privacy policy: local-first by default, optional opt-in sync, no analytics, no ads, no trackers. What data the app stores and where it lives.">
+    <link rel="canonical" href="https://matchbook.gg/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Matchbook">
+    <meta property="og:title" content="Privacy Policy — Matchbook">
+    <meta property="og:description" content="Local-first by default, optional opt-in sync, no analytics, no ads, no trackers.">
+    <meta property="og:url" content="https://matchbook.gg/privacy.html">
+    <!-- og.png does not exist yet — create a 1200x630 social card and drop it at the site root -->
+    <meta property="og:image" content="https://matchbook.gg/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@matchbookgg">
+    <meta name="twitter:title" content="Privacy Policy — Matchbook">
+    <meta name="twitter:description" content="Local-first by default, optional opt-in sync, no analytics, no ads, no trackers.">
+    <meta name="twitter:image" content="https://matchbook.gg/og.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -95,6 +110,7 @@
             <a href="index.html" class="nav-brand">Matchbook</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="support.html">Support</a>
                 <a href="terms.html">Terms</a>
             </div>
         </div>
@@ -102,11 +118,11 @@
 
     <div class="content">
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: March 2, 2026</p>
+        <p class="updated">Last updated: July 17, 2026</p>
 
         <div class="dev-notice">
             <span class="label"><span class="dot"></span> Note</span>
-            <p>Matchbook is currently in development. This privacy policy describes how the app will handle your data when it launches. We'll update this document as features are finalized.</p>
+            <p>Matchbook is still in development; this policy will be reviewed and re-stamped at public launch.</p>
         </div>
 
         <h2>What Matchbook Is</h2>
@@ -122,6 +138,11 @@
             <li>Champion notes and matchup guides</li>
             <li>Learning objectives</li>
             <li>Gameplay flag annotations and recording notes</li>
+            <li>Custom tags you create and apply to sessions or moments</li>
+            <li>Game-knowledge entries you write or import</li>
+            <li>Focus themes and practice goals you set</li>
+            <li>App settings and preferences</li>
+            <li>An email address and password — only if you choose to create an optional sync account</li>
         </ul>
 
         <h3>Data Fetched from the Riot Games API on Your Behalf</h3>
@@ -133,22 +154,32 @@
             <li>Ranked tier, division, and LP</li>
         </ul>
         <p>This data is fetched solely to provide Matchbook's journaling and analysis features. Matchbook only reads data from the Riot API — it never modifies your Riot account or game data.</p>
+        <p>While the League client is running, Matchbook also reads live game state directly from the client on your machine (game phase, champion select, lobby, rune page, ranked stats). This connection stays entirely on your device — nothing from it is sent over the internet.</p>
 
         <h3>Data Generated on Your Device</h3>
         <ul>
             <li>Screen recordings of your League of Legends gameplay</li>
             <li>Video clips extracted from recordings</li>
             <li>Statistical snapshots and trends calculated from your match history</li>
+            <li>LP progression history sampled during your play sessions</li>
+            <li>A local log of which Matchbook features you use (never sent to any analytics service)</li>
         </ul>
 
         <h2>Where Your Data Is Stored</h2>
-        <p><strong>All data is stored locally on your device.</strong> Matchbook does not operate cloud servers or sync your data to remote storage.</p>
+        <p><strong>By default, all data is stored locally on your device.</strong> Matchbook never requires an account, and without one your data stays on your Mac.</p>
         <ul>
-            <li>Structured data (profiles, matches, journals, settings) is stored in a local database on your device.</li>
+            <li>Structured data (profiles, matches, journals, notes, flags, stats, settings) is stored in a local database on your device.</li>
             <li>Video recordings and clips are stored as files in your local application data directory.</li>
-            <li>Your Riot Games API key is stored in your operating system's secure credential storage (macOS Keychain or platform equivalent), encrypted by the operating system.</li>
+            <li>Your Riot Games API key is stored in your operating system's secure credential storage (macOS Keychain), encrypted by the operating system. If you sign in for sync, your sign-in session tokens are kept there too.</li>
         </ul>
-        <p>If Matchbook introduces optional cloud sync or cross-device features in the future, this will be clearly communicated and require your explicit opt-in consent.</p>
+
+        <h3>Optional Cloud Sync</h3>
+        <p>Matchbook offers optional multi-device sync. Sync only runs if you choose to sign in — there is no sign-in wall, and the app is fully functional offline without an account. If you do sign in:</p>
+        <ul>
+            <li>Your structured data — sessions, matches, journals, reflections, notes, flags, tags, knowledge entries, stats, settings, and recording <em>metadata</em> — syncs to your account on Matchbook's cloud infrastructure, hosted on Supabase.</li>
+            <li><strong>Video recordings and clips never sync.</strong> Only their metadata (titles, timestamps, flags) does; the video files stay on your Mac.</li>
+            <li>Signing out stops syncing, and the app keeps working with your local data.</li>
+        </ul>
 
         <h2>Third-Party Services</h2>
 
@@ -160,24 +191,40 @@
             <li>Matchbook does not store data beyond what is necessary for the app's functionality</li>
             <li>All Riot Games trademarks and game data are the property of Riot Games, Inc.</li>
         </ul>
+        <p>Matchbook also fetches static game assets — patch versions, champion data, champion portraits, item icons — from Data Dragon, Riot's public asset service, and a small set of game icons (such as objective and minimap artwork) from CommunityDragon, a community-run mirror of League's game assets. These requests contain no personal data.</p>
 
-        <h3>No Other Third-Party Services</h3>
-        <p>Matchbook does not use analytics services, crash reporting tools, advertising networks, tracking pixels, or any other third-party data collection. No data is sent to any AI service.</p>
+        <h3>OP.GG</h3>
+        <p>Matchbook fetches aggregate champion matchup statistics (for example, game-wide win rates for a matchup) from OP.GG. These lookups are about champions, not about you — they do not include your Riot account identity.</p>
+
+        <h3>Supabase (optional sync only)</h3>
+        <p>If you sign in for sync, your synced data is stored in your account on Matchbook's cloud infrastructure, hosted by Supabase. We use this data only to provide sync. If you never sign in, nothing is synced and no account data exists.</p>
+
+        <h3>No Analytics, Ads, or Trackers</h3>
+        <p>Matchbook does not use third-party analytics services, crash reporting tools, advertising networks, tracking pixels, or any other third-party data collection. The local log of feature usage described above stays inside your own data and is never sent to any analytics service. No data is sent to any AI service.</p>
 
         <h2>Data Retention and Deletion</h2>
-        <p>Since all data is stored locally on your device, you have full control:</p>
+        <p>You have full control over your data:</p>
         <ul>
             <li>Delete individual matches, sessions, recordings, journal entries, champion notes, or any other data at any time within the app.</li>
             <li>Matchbook's auto-cleanup feature can automatically remove old recordings after a configurable number of days.</li>
             <li>Uninstalling Matchbook removes the application. Your data files can be removed by deleting the Matchbook folder in your application data directory.</li>
+            <li>If you use optional sync, signing out stops syncing. To have your account's synced data deleted, email us at <a href="mailto:hello@matchbook.gg">hello@matchbook.gg</a> and we'll remove it.</li>
         </ul>
 
         <h2>Data Sharing</h2>
-        <p>Matchbook does not sell, rent, or share your personal data with anyone. The only outbound data transfer is:</p>
+        <p>Matchbook does not sell, rent, or share your personal data with anyone. Outbound data transfers are limited to:</p>
         <ul>
-            <li><strong>Riot Games API</strong> — Requests to fetch your match data (using your account information).</li>
+            <li><strong>Riot Games API</strong> — requests to fetch your match data (using your account information).</li>
+            <li><strong>Data Dragon</strong> — requests for static game assets (no personal data).</li>
+            <li><strong>CommunityDragon</strong> — requests for static game icons (no personal data).</li>
+            <li><strong>OP.GG</strong> — requests for aggregate champion statistics (no personal data).</li>
+            <li><strong>Sync (optional)</strong> — if you sign in, your structured data syncs to your account on Matchbook's cloud infrastructure. We use it only to provide sync.</li>
         </ul>
-        <p>This transfer is initiated by you and occurs directly from your device.</p>
+        <p>Every transfer above occurs directly from your device.</p>
+
+        <h2>Our Website</h2>
+        <p>This website (matchbook.gg) is a static site hosted on GitHub Pages. We run no analytics, cookies, or trackers on it. The site loads its fonts from Google Fonts, which means your browser sends your IP address to Google when the page loads, subject to <a href="https://policies.google.com/privacy">Google's privacy policy</a>. GitHub Pages may also log standard request data as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+        <!-- FOUNDER (optional): self-hosting the two font files would remove the Google Fonts disclosure entirely. -->
 
         <h2>Children's Privacy</h2>
         <p>Matchbook is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided personal information through Matchbook, please contact us.</p>
@@ -186,15 +233,17 @@
         <p>We may update this privacy policy from time to time. Changes will be noted by updating the "Last updated" date. Significant changes will be communicated through the app or our website.</p>
 
         <h2>Contact</h2>
-        <p><strong>Email:</strong> <a href="mailto:contact@matchbook.gg">contact@matchbook.gg</a></p>
+        <p><strong>Email:</strong> <a href="mailto:hello@matchbook.gg">hello@matchbook.gg</a></p>
     </div>
 
     <footer>
         <div class="container">
             <div class="footer-links">
                 <a href="index.html">Home</a>
+                <a href="founding-coaches.html">Founding Coaches</a>
+                <a href="support.html">Support</a>
                 <a href="terms.html">Terms of Service</a>
-                <a href="mailto:contact@matchbook.gg">Contact</a>
+                <a href="mailto:hello@matchbook.gg">Contact</a>
             </div>
             <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
             <p class="footer-copy">&copy; 2026 Matchbook</p>

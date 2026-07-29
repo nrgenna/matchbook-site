@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started — Matchbook Support</title>
+    <meta name="description" content="Setup and first-session guide for Matchbook beta testers: install, link your Riot account, record your first game, flag moments with ⌘J, and review it — from download to your first reviewed game.">
+    <link rel="canonical" href="https://matchbook.gg/support.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Matchbook">
+    <meta property="og:title" content="Getting Started — Matchbook Support">
+    <meta property="og:description" content="Setup and first-session guide for Matchbook beta testers — from download to your first reviewed game.">
+    <meta property="og:url" content="https://matchbook.gg/support.html">
+    <!-- og.png does not exist yet — create a 1200x630 social card and drop it at the site root -->
+    <meta property="og:image" content="https://matchbook.gg/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@matchbookgg">
+    <meta name="twitter:title" content="Getting Started — Matchbook Support">
+    <meta name="twitter:description" content="Setup and first-session guide for Matchbook beta testers — from download to your first reviewed game.">
+    <meta name="twitter:image" content="https://matchbook.gg/og.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── Design Tokens (Standard Theme — dark-first) ── */
+        :root {
+            --bg: #111114;
+            --bg-subtle: #16161A;
+            --surface: #1E1E24;
+            --surface-elevated: #25252D;
+            --text-primary: #E8E8ED;
+            --text-secondary: #9494A1;
+            --text-tertiary: #5C5C6B;
+            --accent: #818CF2;
+            --accent-hover: #9BA3F7;
+            --accent-subtle: rgba(129, 140, 242, 0.10);
+            --accent-border: rgba(129, 140, 242, 0.20);
+            --divider: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --glow: rgba(129, 140, 242, 0.06);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #F8F8FA;
+                --bg-subtle: #F0F0F4;
+                --surface: #FFFFFF;
+                --surface-elevated: #FFFFFF;
+                --text-primary: #1A1A1D;
+                --text-secondary: #6B6B76;
+                --text-tertiary: #9B9BA8;
+                --accent: #6366F1;
+                --accent-hover: #818CF2;
+                --accent-subtle: rgba(99, 102, 241, 0.08);
+                --accent-border: rgba(99, 102, 241, 0.18);
+                --divider: rgba(0, 0, 0, 0.06);
+                --card-border: rgba(0, 0, 0, 0.08);
+                --glow: rgba(99, 102, 241, 0.04);
+            }
+        }
+
+        /* ── Base ── */
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.3; }
+
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(17, 17, 20, 0.8);
+            border-bottom: 1px solid var(--divider);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+
+        @media (prefers-color-scheme: light) {
+            nav { background: rgba(248, 248, 250, 0.8); }
+        }
+
+        nav .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+        }
+
+        .nav-brand {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        /* ── Content ── */
+        .content {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .content h1 { font-size: 36px; margin-bottom: 8px; }
+
+        .content .subtitle {
+            font-size: 15px;
+            color: var(--text-tertiary);
+            margin-bottom: 48px;
+        }
+
+        .content h2 {
+            font-size: 22px;
+            margin-top: 44px;
+            margin-bottom: 12px;
+            padding-top: 24px;
+            border-top: 1px solid var(--divider);
+        }
+
+        .content h3 { font-size: 17px; margin-top: 28px; margin-bottom: 8px; }
+
+        .content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .content strong { color: var(--text-primary); font-weight: 600; }
+
+        .content ul, .content ol {
+            margin: 0 0 16px 22px;
+        }
+
+        .content li {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .content code {
+            font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
+            font-size: 13px;
+            color: var(--text-primary);
+            background: var(--surface-elevated);
+            border: 1px solid var(--card-border);
+            border-radius: 5px;
+            padding: 1px 6px;
+            white-space: nowrap;
+        }
+
+        .kbd {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--surface-elevated);
+            border: 1px solid var(--card-border);
+            border-bottom-width: 2px;
+            border-radius: 6px;
+            padding: 1px 7px;
+            white-space: nowrap;
+        }
+
+        .callout {
+            background: var(--surface);
+            border: 1px solid var(--accent-border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+
+        .callout p { margin-bottom: 0; font-size: 14px; }
+
+        .faq-item h3 { margin-top: 24px; }
+
+        /* ── Footer ── */
+        footer {
+            padding: 40px 24px;
+            border-top: 1px solid var(--divider);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .riot-disclaimer {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.5;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 13px; }
+            .content { padding: 100px 24px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-brand">Matchbook</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="founding-coaches.html">Coaches</a>
+                <a href="#bugs">Report a Bug</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Getting Started with Matchbook</h1>
+        <p class="subtitle">Setup and first-session guide for beta testers — from download to your first reviewed game.</p>
+
+        <p><strong>What is Matchbook?</strong> A native Mac app for League of Legends players: it records your games, lets you flag key moments mid-game with a hotkey, and gives you a structured journal to actually review them afterward. Most apps give you data. Matchbook gives you a mirror.</p>
+
+        <h2 id="requirements">What you need</h2>
+        <ul>
+            <li>A Mac with Apple Silicon (M1 or newer)</li>
+            <li>macOS 15 (Sequoia) or later</li>
+            <li>League of Legends installed — any current client version <!-- [VERIFY IN APP] confirm the minimum League client version claim --></li>
+            <li>A free Riot developer API key (walkthrough below — takes about a minute)</li>
+            <li>At least 500 MB of free disk space (recordings are stored on your Mac)</li>
+            <li>An internet connection during setup</li>
+        </ul>
+
+        <h2 id="install">Install</h2>
+        <ol>
+            <li>Download Matchbook from [DOWNLOAD-URL].</li>
+            <li>Drag it into your Applications folder.</li>
+            <li>First launch: <strong>right-click the app &rarr; Open &rarr; Open</strong>. Until our Apple notarization ships, macOS will warn about an "unidentified developer" — the right-click-open trick gets past it once, and after that it opens normally.</li>
+        </ol>
+
+        <h2 id="onboarding">First run: onboarding</h2>
+        <p>On launch you'll see an animated matchbook cover — click or drag the match to open it. Then:</p>
+        <ol>
+            <li><strong>Welcome</strong> — connect your Riot account (next section). This step can't be skipped.</li>
+            <li><strong>Experience level</strong> — Beginner / Intermediate / Advanced / Master.</li>
+            <li><strong>Your journey so far</strong> — Matchbook loads your ranked solo/duo history and shows your champion pool, role distribution, and current rank/LP. Confirm it or customize.</li>
+            <li><strong>Lanes</strong> — pick your primary and secondary role.</li>
+            <li><strong>Champion pool</strong> — up to 5 champions per role, from your detected history or manual search.</li>
+            <li><strong>Account</strong> — an optional cloud account (email/password). Skip is fine; everything in this guide works without one.</li>
+            <li><strong>Tour</strong> — a buddy-guided walkthrough of the Home, Review, and Performance tabs, plus a practice-goal slider. Ends with "Begin Your Journey."</li>
+        </ol>
+
+        <h2 id="riot-account">Linking your Riot account</h2>
+        <p>The Welcome step asks for four things:</p>
+        <ul>
+            <li><strong>Display name</strong> — what Matchbook calls you.</li>
+            <li><strong>Riot ID</strong> — in <code>GameName#TagLine</code> format (example: <code>PlayerName#NA1</code>).</li>
+            <li><strong>Region</strong> — where you play ranked (NA1, EUW1, KR, etc.).</li>
+            <li><strong>Riot API key</strong> — get one at <a href="https://developer.riotgames.com" rel="noopener">developer.riotgames.com</a>: sign in with your Riot account and copy the development key (starts with <code>RGAPI-</code>).</li>
+        </ul>
+        <p>Click <strong>Verify account</strong>. On success you'll see a welcome confirmation and your detected champions and rank. If it fails, check the Riot ID spelling (including the <code>#TagLine</code>), the region, and that your key is fresh.</p>
+        <div class="callout">
+            <p>Heads up: <strong>dev keys expire every 24 hours.</strong> When yours does, grab a new one from the same page and paste it in. Annoying, known, beta-only. The key is stored in your macOS Keychain and nowhere else.</p>
+        </div>
+
+        <h2 id="screen-recording">Screen recording permission</h2>
+        <p>The first time Matchbook tries to record, macOS asks: <em>"Matchbook would like to record your screen."</em> Click <strong>Allow</strong> — no permission, no recording.</p>
+        <p>Denied it, or turned it off later? Go to <strong>System Settings &rarr; Privacy &amp; Security &rarr; Screen Recording</strong> and toggle Matchbook on. macOS may ask you to quit and reopen the app afterward.</p>
+
+        <h2 id="first-session">Your first session</h2>
+        <ol>
+            <li>Open League. Matchbook talks to the running League client to know when a game starts — no manual "record" button needed.</li>
+            <li>In Matchbook's <strong>Home</strong> tab, create a practice session and set your focus for the block of games.</li>
+            <li>Queue up. When your game starts, recording begins automatically and the game imports into your session when it ends.</li>
+        </ol>
+        <p>No session running? Games still auto-record as "loose" matches, so nothing is lost. And if you launch Matchbook while already mid-game, a banner offers a <strong>Record</strong> button to start capturing right away.</p>
+
+        <h2 id="flagging">Flagging moments: &#8984;J</h2>
+        <p>Mid-game, when something happens that you'll want to look at later — a fight you shouldn't have taken, a wave you misread — press <span class="kbd">&#8984;J</span> (Command + J). Matchbook drops a timestamped flag at that exact point in the recording and plays a confirmation sound. Don't stop playing; don't try to remember it. That's the whole point.</p>
+        <ul>
+            <li><strong>Needs Accessibility permission</strong>: System Settings &rarr; Privacy &amp; Security &rarr; Accessibility &rarr; toggle Matchbook on. If it's off, the hotkey silently does nothing.</li>
+            <li><strong>Why the &#8984;?</strong> A modifier is required by design — a bare key would fire while you type in game chat.</li>
+            <li><strong>Change it</strong>: Settings &rarr; Recording &rarr; Flag Hotkey.</li>
+        </ul>
+
+        <h2 id="reviewing">Reviewing a game</h2>
+        <p>After the game ends it imports automatically. Open the <strong>Review</strong> tab: watch the recording, jump straight to your flagged moments, and annotate them — what you saw, what you were thinking, what you'd do differently. Then journal the game itself. Two minutes of honest review beats another autopilot queue. You can't fix what you won't see.</p>
+
+        <h2 id="data">Where your data lives</h2>
+        <p>On your Mac. Specifically:</p>
+        <ul>
+            <li><strong>Recordings</strong>: <code>~/Library/Application Support/Matchbook/Recordings/</code> — your disk, deletable in Finder anytime.</li>
+            <li><strong>Riot API key</strong>: the macOS Keychain.</li>
+            <li><strong>Journal and session data</strong>: stored locally.</li>
+            <li><strong>No third-party analytics, no ads, no trackers.</strong> AI features are disconnected in this build — nothing you write is sent to any AI service.</li>
+        </ul>
+
+        <h2 id="bugs">Reporting bugs</h2>
+        <p>You're a beta tester — bugs are the job. Send them to:</p>
+        <ul>
+            <li><strong>Email</strong>: <a href="mailto:hello@matchbook.gg?subject=Bug%20report">hello@matchbook.gg</a></li>
+            <li><strong>Discord</strong>: [DISCORD-INVITE]</li>
+        </ul>
+        <p>Include your macOS version, what you did, what you expected, what actually happened, and a screenshot if you have one.</p>
+
+        <h2 id="faq">FAQ</h2>
+
+        <div class="faq-item">
+            <h3>Does this work with OBS (or whatever I already record with)?</h3>
+            <p>Yes. Matchbook works alongside whatever recorder you already use — it's a deliberate-practice system, not just a recorder. Run both.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Will this get me banned?</h3>
+            <p>Matchbook is built to stay inside Riot's developer policies: it reads game state from Riot's public web API and from the local API the League client itself exposes on your machine. It never modifies game files, never injects into the game, and never sends input to the game — nothing in the categories anti-cheat targets. We can't speak for Riot, but there is nothing here to detect. For the record: Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why do I need my own Riot API key?</h3>
+            <p>During beta, Matchbook uses your personal developer key to fetch your match history and rank. It's free, takes a minute to get, and lives only in your Keychain. The 24-hour expiry is a Riot dev-key rule, not ours.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does it record my whole screen?</h3>
+            <p>It captures the League game window. During loading screens or if you tab out, it briefly falls back to display capture so the recording never freezes. Either way, recordings never leave your Mac.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does Matchbook need League running?</h3>
+            <p>To detect and record games, yes — it listens to the local League client. The app opens fine without it; it just can't auto-record anything.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What does the beta cost?</h3>
+            <p>Nothing. Beta testers get free access through launch day. Pricing after that isn't decided yet, and we're not going to pretend it is.</p>
+        </div>
+    </div>
+
+    <!--
+    Open items (founder):
+    - Replace [DOWNLOAD-URL] once the signed/notarized build is uploaded.
+    - Replace [DISCORD-INVITE] with the real server invite link.
+    - [VERIFY IN APP] Confirm the minimum League client version claim — run this guide end-to-end on a clean Mac with a current client.
+    - Confirm the optional cloud-account onboarding step appears in the beta build as described; if the launch build hides it, delete that step from this guide.
+    - Walk the Gatekeeper right-click-open flow on a fresh machine; screenshot it for Discord if testers get stuck.
+    -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="founding-coaches.html">Founding Coaches</a>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="mailto:hello@matchbook.gg">hello@matchbook.gg</a>
+        </div>
+        <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+        <p class="footer-copy">&copy; 2026 Matchbook</p>
+    </footer>
+
+</body>
+</html>
