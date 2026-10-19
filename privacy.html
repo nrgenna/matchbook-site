@@ -11,100 +11,14 @@
     <meta property="og:title" content="Privacy Policy — Matchbook">
     <meta property="og:description" content="Local-first by default, optional opt-in sync, no analytics, no ads, no trackers.">
     <meta property="og:url" content="https://matchbook.gg/privacy.html">
-    <!-- og.png does not exist yet — create a 1200x630 social card and drop it at the site root -->
-    <meta property="og:image" content="https://matchbook.gg/og.png">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@matchbookgg">
     <meta name="twitter:title" content="Privacy Policy — Matchbook">
     <meta name="twitter:description" content="Local-first by default, optional opt-in sync, no analytics, no ads, no trackers.">
-    <meta name="twitter:image" content="https://matchbook.gg/og.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --bg: #111114; --surface: #1E1E24; --text-primary: #E8E8ED;
-            --text-secondary: #9494A1; --text-tertiary: #5C5C6B;
-            --accent: #818CF2; --accent-hover: #9BA3F7;
-            --accent-border: rgba(129, 140, 242, 0.20);
-            --divider: rgba(255, 255, 255, 0.06);
-            --card-border: rgba(255, 255, 255, 0.08);
-        }
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg: #F8F8FA; --surface: #FFFFFF; --text-primary: #1A1A1D;
-                --text-secondary: #6B6B76; --text-tertiary: #9B9BA8;
-                --accent: #6366F1; --accent-hover: #818CF2;
-                --accent-border: rgba(99, 102, 241, 0.18);
-                --divider: rgba(0, 0, 0, 0.06);
-                --card-border: rgba(0, 0, 0, 0.08);
-            }
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            background: var(--bg); color: var(--text-primary);
-            line-height: 1.7; -webkit-font-smoothing: antialiased;
-        }
-        h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.3; }
-        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-        a:hover { color: var(--accent-hover); }
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(17, 17, 20, 0.8); border-bottom: 1px solid var(--divider);
-            backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-        }
-        @media (prefers-color-scheme: light) {
-            nav { background: rgba(248, 248, 250, 0.8); }
-        }
-        nav .container {
-            max-width: 960px; margin: 0 auto; padding: 0 24px;
-            display: flex; justify-content: space-between; align-items: center; height: 56px;
-        }
-        .nav-brand { font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px; color: var(--text-primary); }
-        .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
-        .nav-links a:hover { color: var(--text-primary); }
-        .content {
-            max-width: 680px; margin: 0 auto; padding: 120px 24px 80px;
-        }
-        .content h1 { font-size: 36px; margin-bottom: 8px; }
-        .content .updated { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
-        .content h2 { font-size: 22px; margin-top: 40px; margin-bottom: 12px; }
-        .content h3 { font-size: 17px; margin-top: 28px; margin-bottom: 8px; }
-        .content p { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; }
-        .content ul { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
-        .content li { margin-bottom: 6px; }
-        .content strong { color: var(--text-primary); }
-        .dev-notice {
-            background: var(--surface); border: 1px solid var(--accent-border);
-            border-radius: 10px; padding: 20px 24px; margin-bottom: 40px;
-        }
-        .dev-notice p { margin-bottom: 0; font-size: 14px; }
-        .dev-notice .label {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
-            letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
-        }
-        .dev-notice .dot {
-            width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        footer {
-            padding: 40px 0; border-top: 1px solid var(--divider); text-align: center;
-        }
-        footer .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-        .footer-links { display: flex; justify-content: center; gap: 24px; font-size: 13px; margin-bottom: 16px; }
-        .footer-links a { color: var(--text-secondary); }
-        .footer-links a:hover { color: var(--text-primary); }
-        .riot-disclaimer { font-size: 11px; color: var(--text-tertiary); max-width: 600px; margin: 0 auto 12px; line-height: 1.5; }
-        .footer-copy { font-size: 12px; color: var(--text-tertiary); }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="legacy-page">
     <nav>
         <div class="container">
             <a href="index.html" class="nav-brand">Matchbook</a>
@@ -118,7 +32,7 @@
 
     <div class="content">
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: July 17, 2026</p>
+        <p class="updated">Last updated: October 18, 2026</p>
 
         <div class="dev-notice">
             <span class="label"><span class="dot"></span> Note</span>
@@ -126,8 +40,8 @@
         </div>
 
         <h2>What Matchbook Is</h2>
-        <p>Matchbook is a companion application for League of Legends that helps players improve through structured journaling, game recording, and performance tracking. Matchbook is currently available on macOS with plans to expand to additional platforms.</p>
-        <p>Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+        <p>Matchbook is a companion application for League of Legends that helps players improve through structured journaling, game recording, and performance tracking. Matchbook is currently built for macOS, with plans to expand to additional platforms.</p>
+        <p>Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
 
         <h2>What Data We Collect</h2>
 
@@ -154,7 +68,7 @@
             <li>Ranked tier, division, and LP</li>
         </ul>
         <p>This data is fetched solely to provide Matchbook's journaling and analysis features. Matchbook only reads data from the Riot API — it never modifies your Riot account or game data.</p>
-        <p>While the League client is running, Matchbook also reads live game state directly from the client on your machine (game phase, champion select, lobby, rune page, ranked stats). This connection stays entirely on your device — nothing from it is sent over the internet.</p>
+        <p>While the League client is running, Matchbook also reads live game state directly from the client on your machine (game phase, champion select, lobby, rune page, ranked stats). This connection stays entirely on your device — nothing from it is sent over the internet. If you turn on a daily game limit, Matchbook can also use this local connection to cancel a queue search or decline a ready check once you reach your limit.</p>
 
         <h3>Data Generated on Your Device</h3>
         <ul>
@@ -177,7 +91,7 @@
         <p>Matchbook offers optional multi-device sync. Sync only runs if you choose to sign in — there is no sign-in wall, and the app is fully functional offline without an account. If you do sign in:</p>
         <ul>
             <li>Your structured data — sessions, matches, journals, reflections, notes, flags, tags, knowledge entries, stats, settings, and recording <em>metadata</em> — syncs to your account on Matchbook's cloud infrastructure, hosted on Supabase.</li>
-            <li><strong>Video recordings and clips never sync.</strong> Only their metadata (titles, timestamps, flags) does; the video files stay on your Mac.</li>
+            <li><strong>Full video recordings never sync.</strong> Their metadata (titles, timestamps, flags) and a small thumbnail image do; the video files stay on your Mac. A clip is uploaded only when you choose to upload it, so you can watch it on your other devices.</li>
             <li>Signing out stops syncing, and the app keeps working with your local data.</li>
         </ul>
 
@@ -218,13 +132,12 @@
             <li><strong>Data Dragon</strong> — requests for static game assets (no personal data).</li>
             <li><strong>CommunityDragon</strong> — requests for static game icons (no personal data).</li>
             <li><strong>OP.GG</strong> — requests for aggregate champion statistics (no personal data).</li>
-            <li><strong>Sync (optional)</strong> — if you sign in, your structured data syncs to your account on Matchbook's cloud infrastructure. We use it only to provide sync.</li>
+            <li><strong>Sync (optional)</strong> — if you sign in, your structured data, recording thumbnails, and any clips you choose to upload sync to your account on Matchbook's cloud infrastructure. We use it only to provide sync.</li>
         </ul>
         <p>Every transfer above occurs directly from your device.</p>
 
         <h2>Our Website</h2>
-        <p>This website (matchbook.gg) is a static site hosted on GitHub Pages. We run no analytics, cookies, or trackers on it. The site loads its fonts from Google Fonts, which means your browser sends your IP address to Google when the page loads, subject to <a href="https://policies.google.com/privacy">Google's privacy policy</a>. GitHub Pages may also log standard request data as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
-        <!-- FOUNDER (optional): self-hosting the two font files would remove the Google Fonts disclosure entirely. -->
+        <p>This website (matchbook.gg) is a static site hosted on GitHub Pages. We run no analytics, cookies, or trackers on it. The site serves its own fonts, so no font requests go to a third party. GitHub Pages may also log standard request data as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
 
         <h2>Children's Privacy</h2>
         <p>Matchbook is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided personal information through Matchbook, please contact us.</p>
@@ -245,7 +158,7 @@
                 <a href="terms.html">Terms of Service</a>
                 <a href="mailto:hello@matchbook.gg">Contact</a>
             </div>
-            <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+            <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
             <p class="footer-copy">&copy; 2026 Matchbook</p>
         </div>
     </footer>

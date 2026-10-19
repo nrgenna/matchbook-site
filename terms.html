@@ -11,99 +11,14 @@
     <meta property="og:title" content="Terms of Service — Matchbook">
     <meta property="og:description" content="Terms of Service for Matchbook, the deliberate-practice journal and game recorder for League of Legends players on macOS.">
     <meta property="og:url" content="https://matchbook.gg/terms.html">
-    <!-- og.png does not exist yet — create a 1200x630 social card and drop it at the site root -->
-    <meta property="og:image" content="https://matchbook.gg/og.png">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@matchbookgg">
     <meta name="twitter:title" content="Terms of Service — Matchbook">
     <meta name="twitter:description" content="Terms of Service for Matchbook, the deliberate-practice journal and game recorder for League of Legends players on macOS.">
-    <meta name="twitter:image" content="https://matchbook.gg/og.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --bg: #111114; --surface: #1E1E24; --text-primary: #E8E8ED;
-            --text-secondary: #9494A1; --text-tertiary: #5C5C6B;
-            --accent: #818CF2; --accent-hover: #9BA3F7;
-            --accent-border: rgba(129, 140, 242, 0.20);
-            --divider: rgba(255, 255, 255, 0.06);
-            --card-border: rgba(255, 255, 255, 0.08);
-        }
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg: #F8F8FA; --surface: #FFFFFF; --text-primary: #1A1A1D;
-                --text-secondary: #6B6B76; --text-tertiary: #9B9BA8;
-                --accent: #6366F1; --accent-hover: #818CF2;
-                --accent-border: rgba(99, 102, 241, 0.18);
-                --divider: rgba(0, 0, 0, 0.06);
-                --card-border: rgba(0, 0, 0, 0.08);
-            }
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            background: var(--bg); color: var(--text-primary);
-            line-height: 1.7; -webkit-font-smoothing: antialiased;
-        }
-        h1, h2, h3 { font-family: 'Lora', Georgia, serif; line-height: 1.3; }
-        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-        a:hover { color: var(--accent-hover); }
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(17, 17, 20, 0.8); border-bottom: 1px solid var(--divider);
-            backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-        }
-        @media (prefers-color-scheme: light) {
-            nav { background: rgba(248, 248, 250, 0.8); }
-        }
-        nav .container {
-            max-width: 960px; margin: 0 auto; padding: 0 24px;
-            display: flex; justify-content: space-between; align-items: center; height: 56px;
-        }
-        .nav-brand { font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 20px; color: var(--text-primary); }
-        .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
-        .nav-links a:hover { color: var(--text-primary); }
-        .content {
-            max-width: 680px; margin: 0 auto; padding: 120px 24px 80px;
-        }
-        .content h1 { font-size: 36px; margin-bottom: 8px; }
-        .content .updated { font-size: 14px; color: var(--text-tertiary); margin-bottom: 48px; }
-        .content h2 { font-size: 22px; margin-top: 40px; margin-bottom: 12px; }
-        .content p { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; }
-        .content ul { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
-        .content li { margin-bottom: 6px; }
-        .content strong { color: var(--text-primary); }
-        .dev-notice {
-            background: var(--surface); border: 1px solid var(--accent-border);
-            border-radius: 10px; padding: 20px 24px; margin-bottom: 40px;
-        }
-        .dev-notice p { margin-bottom: 0; font-size: 14px; }
-        .dev-notice .label {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
-            letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
-        }
-        .dev-notice .dot {
-            width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        footer {
-            padding: 40px 0; border-top: 1px solid var(--divider); text-align: center;
-        }
-        footer .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-        .footer-links { display: flex; justify-content: center; gap: 24px; font-size: 13px; margin-bottom: 16px; }
-        .footer-links a { color: var(--text-secondary); }
-        .footer-links a:hover { color: var(--text-primary); }
-        .riot-disclaimer { font-size: 11px; color: var(--text-tertiary); max-width: 600px; margin: 0 auto 12px; line-height: 1.5; }
-        .footer-copy { font-size: 12px; color: var(--text-tertiary); }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="legacy-page">
     <nav>
         <div class="container">
             <a href="index.html" class="nav-brand">Matchbook</a>
@@ -117,7 +32,7 @@
 
     <div class="content">
         <h1>Terms of Service</h1>
-        <p class="updated">Last updated: July 29, 2026</p>
+        <p class="updated">Last updated: October 18, 2026</p>
 
         <div class="dev-notice">
             <span class="label"><span class="dot"></span> Note</span>
@@ -128,10 +43,10 @@
         <p>By downloading, installing, or using Matchbook ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
 
         <h2>2. Description of Service</h2>
-        <p>Matchbook is a companion application for League of Legends that provides structured journaling, game recording, and performance tracking to help players improve through deliberate practice. Matchbook is currently available on macOS with plans to expand to additional platforms.</p>
+        <p>Matchbook is a companion application for League of Legends that provides structured journaling, game recording, and performance tracking to help players improve through deliberate practice. Matchbook is currently built for macOS, with plans to expand to additional platforms.</p>
 
         <h2>3. Not Affiliated with Riot Games</h2>
-        <p>Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+        <p>Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
         <p>Matchbook uses the Riot Games API in accordance with Riot's Developer Policies. Your use of Matchbook does not create any relationship between you and Riot Games beyond what already exists through your Riot Games account.</p>
 
         <h2>4. Eligibility</h2>
@@ -146,7 +61,7 @@
             <li>Managing your own Riot Games API key</li>
         </ul>
         <p>Unless you sign in to sync, your data never leaves your device and we have no access to it. If you lose your device or delete your local data, we cannot recover it.</p>
-        <p><strong>Optional account and sync.</strong> Matchbook offers an optional account with a sync service. You never need one — the App is fully functional without an account. If you do sign in, your journal entries, session data, and settings are synced to our servers so you can access them across devices. Your video recordings are never uploaded; only their metadata (titles, timestamps, flags) syncs. Signing out stops syncing. See the <a href="privacy.html">Privacy Policy</a> for details on what is stored where.</p>
+        <p><strong>Optional account and sync.</strong> Matchbook offers an optional account with a sync service. You never need one — the App is fully functional without an account. If you do sign in, your journal entries, session data, and settings are synced to our servers so you can access them across devices. Your full video recordings are never uploaded; only their metadata (titles, timestamps, flags) and a small thumbnail image sync. A clip is uploaded only when you choose to upload it. Signing out stops syncing. See the <a href="privacy.html">Privacy Policy</a> for details on what is stored where.</p>
 
         <h2>6. Acceptable Use</h2>
         <p>You agree not to:</p>
@@ -206,7 +121,7 @@
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="mailto:hello@matchbook.gg">Contact</a>
             </div>
-            <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</p>
+            <p class="riot-disclaimer">Matchbook isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
             <p class="footer-copy">&copy; 2026 Matchbook</p>
         </div>
     </footer>
